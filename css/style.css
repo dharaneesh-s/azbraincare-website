@@ -230,14 +230,102 @@ img {
   justify-content: center;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
   border: 3px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+  animation: logoEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both,
+             logoFloat 6s ease-in-out 1.5s infinite;
+}
+
+.hero-logo-circle::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(42, 157, 143, 0.12) 45%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(42, 157, 143, 0.12) 55%,
+    transparent 60%
+  );
+  animation: logoShimmer 1.2s ease-in-out 1.1s both;
 }
 
 .hero-logo-circle img {
   width: 180px;
   height: auto;
+  animation: logoFadeIn 0.8s ease 0.6s both;
+}
+
+@keyframes logoEntrance {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  }
+}
+
+@keyframes logoFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes logoShimmer {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(350%);
+  }
+}
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes heroTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroParaIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 0.82;
+    transform: translateY(0);
+  }
 }
 
 .hero-badge {
+  animation: heroTextIn 0.7s ease 0.2s both;
   display: inline-block;
   background: rgba(42, 157, 143, 0.2);
   border: 1px solid rgba(42, 157, 143, 0.3);
@@ -257,21 +345,23 @@ img {
   line-height: 1.12;
   margin-bottom: 18px;
   letter-spacing: -0.01em;
+  animation: heroTextIn 0.7s ease 0.4s both;
 }
 
 .hero p {
   font-size: 1.02rem;
   line-height: 1.75;
-  opacity: 0.82;
   margin-bottom: 30px;
   max-width: 520px;
   font-family: 'Inter', sans-serif;
+  animation: heroParaIn 0.7s ease 0.6s both;
 }
 
 .hero-buttons {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
+  animation: heroTextIn 0.7s ease 0.8s both;
 }
 
 .btn {
@@ -1437,6 +1527,20 @@ section {
 
   .service-body {
     transition: none;
+  }
+
+  .hero-logo-circle,
+  .hero-logo-circle img,
+  .hero-logo-circle::after,
+  .hero-badge,
+  .hero h1,
+  .hero p,
+  .hero-buttons {
+    animation: none;
+  }
+
+  .hero p {
+    opacity: 0.82;
   }
 }
 
