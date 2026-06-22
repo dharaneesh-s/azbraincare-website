@@ -83,22 +83,4 @@ document.addEventListener('DOMContentLoaded', function () {
     observer.observe(el);
   });
 
-  // Contact form
-  var form = document.getElementById('contact-form');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var btn = form.querySelector('.btn-submit');
-      var originalText = btn.textContent;
-      btn.textContent = 'Message Sent!';
-      btn.disabled = true;
-      btn.style.background = '#22c55e';
-      setTimeout(function () {
-        btn.textContent = originalText;
-        btn.disabled = false;
-        btn.style.background = '';
-        form.reset();
-      }, 3000);
-    });
-  }
 });

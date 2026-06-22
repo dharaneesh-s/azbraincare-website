@@ -739,67 +739,48 @@ section {
   color: var(--accent);
 }
 
-.contact-form {
+.contact-cta {
   background: var(--bg);
   border-radius: var(--radius-lg);
-  padding: 32px;
+  padding: 40px;
   border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.contact-form h3 {
-  font-size: 1.15rem;
+.contact-cta h3 {
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--primary-dark);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
-.form-group {
-  margin-bottom: 16px;
+.contact-cta p {
+  color: var(--text-light);
+  margin-bottom: 24px;
+  line-height: 1.7;
 }
 
-.form-group label {
-  display: block;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 5px;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 11px 14px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  font-size: 0.95rem;
-  font-family: inherit;
-  color: var(--text);
-  background: var(--bg-white);
-  transition: border-color var(--transition);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: var(--accent);
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(95, 168, 211, 0.12);
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
   gap: 12px;
 }
 
-.btn-submit {
-  width: 100%;
-  padding: 13px;
+.cta-buttons .btn {
   justify-content: center;
+}
+
+.btn-outline-dark {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--border);
+}
+
+.btn-outline-dark:hover {
+  border-color: var(--primary);
+  background: var(--accent-muted);
 }
 
 /* ===== MAP ===== */
