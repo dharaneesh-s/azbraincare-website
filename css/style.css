@@ -117,8 +117,9 @@ img {
 }
 
 .logo img {
-  height: 44px;
-  width: auto;
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
 }
 
 .nav-links {
@@ -819,14 +820,15 @@ section {
   display: flex;
   align-items: flex-start;
   gap: 14px;
-  max-width: 380px;
+  max-width: 400px;
 }
 
 .footer-brand img {
-  height: 44px;
-  width: auto;
-  filter: brightness(0) invert(1);
+  height: 48px;
+  width: 48px;
+  object-fit: contain;
   flex-shrink: 0;
+  filter: brightness(0) invert(1);
 }
 
 .footer-brand p {
@@ -894,14 +896,18 @@ section {
     text-align: center;
   }
 
+  .hero-inner {
+    gap: 40px;
+  }
+
   .hero-logo-circle {
-    width: 170px;
-    min-width: 170px;
-    height: 170px;
+    width: 180px;
+    min-width: 180px;
+    height: 180px;
   }
 
   .hero-logo-circle img {
-    width: 110px;
+    width: 140px;
   }
 
   .hero p {
@@ -965,6 +971,25 @@ section {
     padding: 110px 0 56px;
   }
 
+  .hero-logo-circle {
+    width: 150px;
+    min-width: 150px;
+    height: 150px;
+  }
+
+  .hero-logo-circle img {
+    width: 115px;
+  }
+
+  .logo img {
+    height: 34px;
+    width: 34px;
+  }
+
+  .logo {
+    font-size: 1.05rem;
+  }
+
   section {
     padding: 56px 0;
   }
@@ -981,6 +1006,11 @@ section {
     grid-template-columns: 1fr;
   }
 
+  .footer-brand {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .footer-links {
     flex-direction: column;
     gap: 20px;
@@ -988,6 +1018,34 @@ section {
 
   .service-body-inner {
     padding-left: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-logo-circle {
+    width: 130px;
+    min-width: 130px;
+    height: 130px;
+  }
+
+  .hero-logo-circle img {
+    width: 100px;
+  }
+
+  .hero h1 {
+    font-size: 1.65rem;
+  }
+
+  .hero-badge {
+    font-size: 0.75rem;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .about-photo {
+    width: 180px;
   }
 }
 
