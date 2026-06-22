@@ -14,7 +14,6 @@
   --accent: #2a9d8f;
   --accent-light: #e0f5f0;
   --accent-muted: #d6eef8;
-  --warm: #e9c46a;
   --bg: #f8f9fb;
   --bg-white: #ffffff;
   --text: #1e293b;
@@ -198,6 +197,16 @@ img {
     radial-gradient(ellipse 60% 50% at 80% 20%, rgba(95, 168, 211, 0.1), transparent);
 }
 
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(42, 157, 143, 0.3), transparent);
+}
+
 .hero-inner {
   display: flex;
   align-items: center;
@@ -338,8 +347,8 @@ section {
   font-size: 0.98rem;
   font-family: 'Inter', sans-serif;
   color: var(--text-light);
-  max-width: 580px;
   line-height: 1.7;
+  padding-left: 18px;
 }
 
 /* ===== ABOUT ===== */
@@ -420,6 +429,14 @@ section {
   fill: none;
   stroke-width: 2.5;
   margin-top: 4px;
+}
+
+.about-research {
+  margin-top: 16px;
+  color: var(--text-light);
+  line-height: 1.75;
+  font-size: 0.92rem;
+  font-family: 'Inter', sans-serif;
 }
 
 .memberships {
@@ -611,6 +628,30 @@ section {
   line-height: 1.6;
 }
 
+.process-text {
+  color: var(--text-light);
+  line-height: 1.75;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.process-text + .process-text {
+  margin-top: 12px;
+}
+
+.process-subtitle {
+  font-size: 1.35rem;
+  color: var(--primary-dark);
+  margin-top: 48px;
+  margin-bottom: 8px;
+}
+
+.process-lead {
+  color: var(--text-light);
+  margin-bottom: 24px;
+  font-family: 'Inter', sans-serif;
+}
+
 /* ===== CONDITIONS ===== */
 .conditions-list {
   display: grid;
@@ -630,6 +671,10 @@ section {
   font-family: 'Inter', sans-serif;
   color: var(--text);
   line-height: 1.5;
+}
+
+.condition-item:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
 }
 
 .condition-item .dot {
@@ -671,7 +716,7 @@ section {
 
 /* ===== CONTACT ===== */
 .contact {
-  background: var(--bg-white);
+  background: var(--bg);
 }
 
 .contact-grid {
