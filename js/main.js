@@ -68,6 +68,25 @@ document.addEventListener('DOMContentLoaded', function () {
     firstService.querySelector('.service-header').setAttribute('aria-expanded', 'true');
   }
 
+  // Tabs
+  document.querySelectorAll('.cn-tab').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      document.querySelectorAll('.cn-tab').forEach(function (t) {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      document.querySelectorAll('.cn-tab-panel').forEach(function (p) {
+        p.classList.remove('active');
+        p.hidden = true;
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      var panel = document.getElementById(tab.getAttribute('aria-controls'));
+      panel.classList.add('active');
+      panel.hidden = false;
+    });
+  });
+
   // Scroll-reveal
   var fadeElements = document.querySelectorAll('.fade-in');
   var observer = new IntersectionObserver(function (entries) {
