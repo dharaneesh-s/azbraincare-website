@@ -716,7 +716,7 @@ section {
 
 .condition-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 14px;
   margin-top: 20px;
 }
@@ -750,9 +750,8 @@ section {
   line-height: 1.55;
 }
 
-.condition-card:nth-child(4),
-.condition-card:nth-child(5) {
-  grid-column: span 1;
+.condition-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
 }
 
 /* Tabs */
@@ -1141,10 +1140,6 @@ section {
     gap: 16px;
   }
 
-  .condition-cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .contact-grid {
     grid-template-columns: 1fr;
   }
@@ -1225,6 +1220,10 @@ section {
 
   .condition-cards {
     grid-template-columns: 1fr;
+  }
+
+  .condition-card:last-child:nth-child(odd) {
+    grid-column: auto;
   }
 
   .cn-tabs {

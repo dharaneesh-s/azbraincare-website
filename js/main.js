@@ -77,13 +77,11 @@ document.addEventListener('DOMContentLoaded', function () {
       });
       document.querySelectorAll('.cn-tab-panel').forEach(function (p) {
         p.classList.remove('active');
-        p.hidden = true;
       });
       tab.classList.add('active');
       tab.setAttribute('aria-selected', 'true');
       var panel = document.getElementById(tab.getAttribute('aria-controls'));
       panel.classList.add('active');
-      panel.hidden = false;
     });
   });
 
