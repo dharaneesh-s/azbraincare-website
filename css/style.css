@@ -817,20 +817,22 @@ section {
 
 .footer-brand {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  align-items: flex-start;
+  gap: 14px;
+  max-width: 380px;
 }
 
 .footer-brand img {
-  height: 40px;
+  height: 44px;
   width: auto;
   filter: brightness(0) invert(1);
+  flex-shrink: 0;
 }
 
 .footer-brand p {
   opacity: 0.7;
   font-size: 0.9rem;
-  max-width: 300px;
+  line-height: 1.5;
 }
 
 .footer-links {
