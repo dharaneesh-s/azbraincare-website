@@ -150,16 +150,21 @@ img {
 }
 
 .nav-links .btn-nav {
-  background: var(--primary);
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
   color: var(--text-on-dark);
   padding: 9px 18px;
   font-weight: 600;
   margin-left: 6px;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 6px rgba(27, 73, 101, 0.2);
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
 }
 
 .nav-links .btn-nav:hover {
-  background: var(--primary-light);
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
   color: var(--text-on-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(27, 73, 101, 0.3);
 }
 
 .mobile-toggle {
@@ -391,15 +396,17 @@ img {
 }
 
 .btn-primary {
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--accent), #1b8a7e);
   color: #fff;
   border: 1.5px solid var(--accent);
+  box-shadow: 0 2px 8px rgba(42, 157, 143, 0.25);
 }
 
 .btn-primary:hover {
-  background: #238b80;
+  background: linear-gradient(135deg, #238b80, #1a7a70);
   border-color: #238b80;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(42, 157, 143, 0.35);
 }
 
 .btn-outline {
@@ -533,13 +540,18 @@ section {
 }
 
 .expertise-item svg {
-  width: 16px;
-  height: 16px;
-  min-width: 16px;
-  stroke: var(--accent);
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  stroke: #fff;
   fill: none;
   stroke-width: 2.5;
-  margin-top: 4px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  margin-top: 3px;
+  background: var(--accent);
+  border-radius: 50%;
+  padding: 3px;
 }
 
 .about-research {
@@ -612,15 +624,23 @@ section {
 }
 
 .service-icon {
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  background: var(--accent-light);
-  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  background: linear-gradient(135deg, var(--accent-light), rgba(42, 157, 143, 0.12));
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--accent);
+  transition: transform var(--transition), background var(--transition);
+}
+
+.service-item:hover .service-icon,
+.service-item.open .service-icon {
+  background: var(--accent);
+  color: #fff;
+  transform: scale(1.05);
 }
 
 .service-icon svg {
@@ -629,6 +649,8 @@ section {
   stroke: currentColor;
   fill: none;
   stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .service-header h3 {
@@ -771,11 +793,18 @@ section {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--accent), #1b8a7e);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1;
+  box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.timeline-item:hover .timeline-marker {
+  transform: scale(1.15);
+  box-shadow: 0 4px 16px rgba(42, 157, 143, 0.4);
 }
 
 .timeline-marker span {
@@ -827,29 +856,48 @@ section {
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 22px 20px;
-  transition: border-color var(--transition), transform var(--transition);
+  padding: 24px 22px;
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 
 .condition-card:hover {
   border-color: var(--accent);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px var(--shadow-md);
 }
 
-.condition-card svg {
-  width: 24px;
-  height: 24px;
+.condition-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent-light), rgba(42, 157, 143, 0.15));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  transition: transform var(--transition), background var(--transition);
+}
+
+.condition-card:hover .condition-icon {
+  transform: scale(1.08);
+  background: linear-gradient(135deg, rgba(42, 157, 143, 0.2), rgba(42, 157, 143, 0.3));
+}
+
+.condition-icon svg {
+  width: 22px;
+  height: 22px;
   stroke: var(--accent);
   fill: none;
   stroke-width: 1.8;
-  margin-bottom: 12px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .condition-card p {
   color: var(--text);
   font-size: 0.88rem;
   font-family: 'Inter', sans-serif;
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 .condition-card:last-child:nth-child(odd) {
@@ -878,17 +926,18 @@ section {
   color: var(--text-light);
   cursor: pointer;
   position: relative;
-  transition: color var(--transition);
+  transition: color var(--transition), background var(--transition);
   border-radius: var(--radius) var(--radius) 0 0;
 }
 
 .cn-tab:hover {
   color: var(--primary);
-  background: var(--accent-light);
+  background: rgba(42, 157, 143, 0.06);
 }
 
 .cn-tab.active {
   color: var(--accent);
+  background: rgba(42, 157, 143, 0.04);
 }
 
 .cn-tab.active::after {
@@ -897,8 +946,9 @@ section {
   bottom: -2px;
   left: 0;
   right: 0;
-  height: 2px;
-  background: var(--accent);
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), #1b8a7e);
+  border-radius: 3px 3px 0 0;
 }
 
 .cn-tab-panel {
@@ -967,12 +1017,19 @@ section {
   width: 40px;
   height: 40px;
   min-width: 40px;
-  background: var(--accent-light);
-  border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent-light), rgba(42, 157, 143, 0.15));
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--accent);
+  transition: transform var(--transition), background var(--transition);
+}
+
+.contact-item:hover .icon {
+  background: var(--accent);
+  color: #fff;
+  transform: scale(1.08);
 }
 
 .contact-item .icon svg {
@@ -981,6 +1038,8 @@ section {
   stroke: currentColor;
   fill: none;
   stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .contact-item h4 {
@@ -1039,14 +1098,16 @@ section {
 }
 
 .btn-cta-primary {
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--accent), #1b8a7e);
   color: #fff;
   border: 1.5px solid var(--accent);
+  box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
 }
 
 .btn-cta-primary:hover {
-  background: #238b80;
+  background: linear-gradient(135deg, #238b80, #1a7a70);
   border-color: #238b80;
+  box-shadow: 0 4px 16px rgba(42, 157, 143, 0.4);
 }
 
 .btn-cta-secondary {
