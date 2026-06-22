@@ -279,6 +279,59 @@ img {
   flex: 1;
 }
 
+.hero-logo-wrap {
+  position: relative;
+  animation: logoFloat 6s ease-in-out 1.5s infinite;
+}
+
+.hero-logo-wrap::before,
+.hero-logo-wrap::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero-logo-wrap::before {
+  inset: -7px;
+  padding: 2px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 55%,
+    rgba(196, 169, 76, 0.2) 65%,
+    #d4af37 80%,
+    #e8d48b 89%,
+    #d4af37 94%,
+    rgba(196, 169, 76, 0.2) 98%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: ringFadeIn 1s ease 1.4s forwards, ringRotate 5s linear 1.4s infinite;
+}
+
+.hero-logo-wrap::after {
+  inset: -14px;
+  padding: 8px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 60%,
+    rgba(212, 175, 55, 0.12) 75%,
+    rgba(232, 212, 139, 0.2) 87%,
+    rgba(212, 175, 55, 0.12) 95%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  filter: blur(4px);
+  animation: ringFadeIn 1s ease 1.4s forwards, ringRotate 5s linear 1.4s infinite;
+}
+
 .hero-logo-circle {
   width: 220px;
   min-width: 220px;
@@ -293,7 +346,6 @@ img {
   position: relative;
   overflow: hidden;
   animation: logoEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both,
-             logoFloat 6s ease-in-out 1.5s infinite,
              logoGlow 4s ease-in-out 2s infinite;
 }
 
@@ -351,6 +403,18 @@ img {
   }
   to {
     transform: translateX(350%);
+  }
+}
+
+@keyframes ringRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ringFadeIn {
+  to {
+    opacity: 1;
   }
 }
 
@@ -1804,6 +1868,9 @@ section {
     transition: none;
   }
 
+  .hero-logo-wrap,
+  .hero-logo-wrap::before,
+  .hero-logo-wrap::after,
   .hero-logo-circle,
   .hero-logo-circle img,
   .hero-logo-circle::after,
@@ -1811,7 +1878,12 @@ section {
   .hero h1,
   .hero p,
   .hero-buttons {
-    animation: none;
+    animation: none !important;
+  }
+
+  .hero-logo-wrap::before,
+  .hero-logo-wrap::after {
+    opacity: 0;
   }
 
   .hero p {
