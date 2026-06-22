@@ -836,22 +836,13 @@ section {
 }
 
 .video-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
   width: 260px;
   min-width: 260px;
 }
 
-.video-label {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-light);
-}
-
 .video-wrapper video {
   width: 100%;
-  flex: 1;
+  height: 100%;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   box-shadow: 0 4px 16px var(--shadow);
@@ -1089,11 +1080,7 @@ section {
   .video-wrapper {
     width: 100%;
     min-width: unset;
-  }
-
-  .video-wrapper video {
     height: 400px;
-    flex: none;
   }
 }
 
