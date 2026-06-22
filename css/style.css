@@ -815,14 +815,14 @@ section {
 }
 
 .map-and-video {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: 20px;
+  align-items: stretch;
+  height: 420px;
 }
 
 .map-wrapper {
-  width: 100%;
-  height: 320px;
+  flex: 1;
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--border);
@@ -839,17 +839,19 @@ section {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 260px;
+  min-width: 260px;
 }
 
 .video-label {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: var(--text-light);
 }
 
 .video-wrapper video {
   width: 100%;
-  height: 280px;
+  flex: 1;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   box-shadow: 0 4px 16px var(--shadow);
@@ -1076,7 +1078,22 @@ section {
   }
 
   .map-and-video {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .map-wrapper {
+    height: 280px;
+  }
+
+  .video-wrapper {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .video-wrapper video {
+    height: 400px;
+    flex: none;
   }
 }
 
